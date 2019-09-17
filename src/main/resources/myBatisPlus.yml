@@ -1,0 +1,36 @@
+# 生成路径
+projectPath:
+# 作者
+author: lyh
+# 模块名
+moduleName:
+# 版本号
+versionFieldName: 1.0
+# 是否支ar模式
+activeRecord: false
+# 是否覆盖文件
+fileOverride: true
+# 数据库表统一前缀
+tablePrefix: t_
+# 数据库列统一前缀
+fieldPrefix: u_,r_,p_,m_
+# 包名统一前缀
+packageName: com.liu
+# 要生成的表名
+tables: t_user
+# 创建完成后是否打开目录
+open: false
+# 是否生成swagger文档注释
+swagger2: false
+# 是否生成基本结果映射 resultMap
+baseResultMap: true
+# 是否生成基本sql片段
+baseColumnList: true
+# 是否开启XML 二级缓存
+enableCache: false
+# 是否启动Lombok配置
+entityLombokModel: true
+# 是否启动REST风格配置
+restControllerStyle: true
+# 生成实体时是否生成字段注解
+entityTableFieldAnnotationEnable: true

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    db1:
+      username: root
+      password: root
+      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:p6spy:mysql://localhost:3306/shop?serverTimezone=UTC
+#      url: jdbc:mysql://localhost:3306/shop?serverTimezone=UTC
+    db2:
+      username: root
+      password: root
+      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:p6spy:mysql://localhost:3306/febs_base?serverTimezone=UTC
+#      url: jdbc:mysql://localhost:3306/febs_base?serverTimezone=UTC

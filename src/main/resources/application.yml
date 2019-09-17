@@ -1,0 +1,93 @@
+spring:
+  #返回的api接口的配置，全局有效
+  jackson:
+    #如果某一个字段为null，就不再返回这个字段
+    default-property-inclusion: non_null
+    serialization:
+      #解决json序列化时于延迟加载冲突的问题
+      FAIL_ON_EMPTY_BEANS: false
+  # 运行环境配置
+  profiles:
+    active: test
+  # thymeleaf模板配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false #热部署文件，页面不产生缓存，及时更新
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  #编码格式
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+#mybatis现已失效
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath*:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.liu.entity
+  global-config:
+    #关闭 mybatis-plus的 banner
+    banner: false
+#    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+#    id-type: 3
+#    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+#    field-strategy: 0
+#    #驼峰下划线转换
+#    db-column-underline: true
+    #刷新mapper 调试神器
+#    refresh-mapper: true
+    #数据库大写下划线转换
+#    capital-mode: true
+  configuration:
+    # 指定 MyBatis 应如何自动映射列到字段或属性。 NONE 表示 取消自动映射；PARTIAL 只会自动映射没有定义嵌套结果集映 射的结果集。 FULL 会自动映射任意复杂的结果集（无论是否嵌套）。 NONE, PARTIAL, FULL
+#    auto-mapping-behavior: full
+    #当没有为参数提供特定的 JDBC 类型时，为空值指定 JDBC 类型。
+    #某些驱动需要指定列的 JDBC 类型，多数情况直接用一般类型即可，
+    #比如 NULL、VARCHAR 或 OTHER。                            JdbcType 常量.
+    #      大多都为: NULL,
+    #      VARCHAR and OTHER
+    jdbc-type-for-null: null
+    #是否允许单一语句返回多结果集（需要兼容驱动）。               true | false
+#    multipleResultSetsEnabled: true
+    #指定发现自动映射目标未知列（或者未知属性类型）的行为。
+    #NONE: 不做任何反应 WARNING: 输出提醒日志 ('org.apache.ibatis.session. AutoMappingUnknownColumnBehavior' 的日志 等级必须设置为 WARN)
+    #FAILING: 映射失败 (抛出 SqlSessionException)
+    #NONE, WARNING, FAILING
+    auto-mapping-unknown-column-behavior: warning
+    #是否开启自动驼峰命名规则（camel case）映射，
+    #即从经典数据库列名 A_COLUMN 到经典 Java
+    #属性名 aColumn 的类似映射。                                true | false
+#    map-underscore-to-camel-case: true
+    #MyBatis 利用本地缓存机制（Local Cache）防止循环引用
+    #（circular references）和加速重复嵌套查询。
+    # 默认值为 SESSION，这种情况下会缓存一个会话中执行的所有查询。
+    #若设置值为 STATEMENT，本地会话仅用在语句执行上，
+    #对相同 SqlSession 的不同调用将不会共享数据。                 SESSION | STATEMENT
+    local-cache-scope: SESSION
+    #指定哪个对象的方法触发一次延迟加载。                         用逗号分隔的方法列表。
+    lazy-load-trigger-methods: equals,clone,hashCode,toString
+    #当返回行的所有列都是空时，MyBatis默认返回null。
+    #当开启这个设置时，MyBatis会返回一个空实例。 请注意，
+    #它也适用于嵌套的结果集 (i.e. collectioin and association)。
+    #从3.4.2开始）                                          true | false
+#    returnInstanceForEmptyRow: true
+    #全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存。   true | false
+    cache-enabled: true
+    #延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。
+    #特定关联关系中可通过设置fetchType属性来覆盖该项的开关状态。 true | false
+    lazy-loading-enabled: true
+    #当开启时，任何方法的调用都会加载该对象的所有属性。 否则，每个属性会按需加载（参考lazyLoadTriggerMethods).    true | false
+    aggressive-lazy-loading: false
+#    #打印sql语句,调试用
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
