@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @PropertySource(value = "classpath:myBatisPlus.yml", encoding = "UTF-8", factory = YamlPropertySourceFactory.class)
-@SuppressWarnings("all")
-@ConfigurationProperties
+@ConfigurationProperties(prefix = "my")
 public class MyBatisPlusConfigEntity {
     private transient final static String prefix="spring.datasource.db1.";
 

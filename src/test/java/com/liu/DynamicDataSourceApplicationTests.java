@@ -20,10 +20,10 @@ public class DynamicDataSourceApplicationTests {
 
     @Test
     public void contextLoads() {
-//        myBatisPlusUtil.init();
-        JSONObject jsonObject=JSON.parseObject(JSON.toJSONString(myBatisPlusConfigEntity));
-        jsonObject.keySet().forEach(k -> {
-            System.out.println(k+"\t"+jsonObject.get(k));
-        });
+        myBatisPlusUtil.init();
+//        JSONObject jsonObject=JSON.parseObject(JSON.toJSONString(myBatisPlusConfigEntity));
+//        jsonObject.keySet().forEach(k -> {
+//            System.out.println(k+"\t"+jsonObject.get(k));
+//        });
     }
 }
